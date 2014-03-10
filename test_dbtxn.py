@@ -1,3 +1,4 @@
+import os
 from pytest import fixture
 from sqlite3 import connect, Connection
 
@@ -31,4 +32,4 @@ class unlimited_pool(object):
 
 @fixture
 def pool(tmpdir):
-    return unlimited_pool(str(tmpdir.join('test.db')))
+    return unlimited_pool(str(os.path.join(tmpdir, 'test.db')))

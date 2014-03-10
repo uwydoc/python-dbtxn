@@ -1,14 +1,24 @@
 python-dbtxn
 ============
 
+Introduction
+------------
 Generator based, hassle free db accessing layer over python dbi.
 
 Python dbi is not abstract enough. The business logic does not need to know about
 the database connection or even the cursor object. It should only know the SQLs
 and the data. And python-dbtxn only lets it know just that.
 
-Usage:
+Dependencies
+------------
+1. `pytest` - for `@fixture` annotation used in *test_dbtxn.py*
 
+ ```sh
+ pip install pytest
+ ```
+
+Usage
+-----
 ```python
 row_count, _ = yield db_execute(SQL, arg1, arg2, ...)
 ```
@@ -58,5 +68,7 @@ def outer_generator(args):
 
 Decorates a SQL generator to be directly callable within another generator.
 
+Test
+----
 test_success.py demonstrates the use of all functions and decorators defined in
 the library.
